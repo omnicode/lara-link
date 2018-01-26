@@ -11,7 +11,8 @@ class LaraLinkServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        $configPath = __DIR__ . '/../../config/lara_link.php';
+        $configPath = __DIR__ . DIRECTORY_SEPARATOR . '..'. DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR
+            .'config' . DIRECTORY_SEPARATOR . 'lara_link.php';
         $this->mergeConfigFrom($configPath, 'lara_link');
     }
 
