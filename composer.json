@@ -1,0 +1,28 @@
+{
+	"name": "omnicode/lara-link",
+	"description": "Convenient link builders",
+	"keywords": ["laravel", "link", "view"],
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Omnicode"
+		}
+	],
+	"require": {
+		"laravel/framework": "5.0.* || 5.1.* || 5.2.* || 5.3.* || 5.4.* || 5.5.*"
+	},
+	"require-dev": {
+		"mockery/mockery": "~0.9",
+		"phpunit/phpunit": "~4.0|~5.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"LaraLink\\": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Tests\\": "tests/"
+		}
+	}
+}
