@@ -201,14 +201,22 @@ class LinkRoute implements ToStringMethodInterface
     private function getDefaultRouteName()
     {
         $tableName = str_plural($this->item->getTable());
-        $data = $this->getReplaceSymbolArr();
+        //todo FIX
+//        $data = $this->getReplaceSymbolArr();
+        $data = ['_' => '-'];
         if ($data) {
             foreach ($data  as $init => $final) {
                 $tableName = str_replace($init, $final, $tableName);
             }
         }
         $routeEnd = !empty($this->actions[$this->action]['route_end']) ? $this->actions[$this->action]['route_end'] : $this->action;
-        return $tableName . '.' . $routeEnd;
+        if (!empty($this->data['route_prefix'])) {
+            $routePrefix = $this->data['route_prefix'];
+            unset($this->data['route_prefix']);
+            return $routePrefix . '.' . $tableName . '.' . $routeEnd;
+        }
+
+        return  $tableName . '.' . $routeEnd;
     }
 
 
