@@ -1,19 +1,23 @@
 <?php
+
 namespace LaraLink\ServiceProvider;
 
-use Illuminate\Support\ServiceProvider;
+use LaraForm\ServiceProvider\LaraFormServiceProvider;
 use LaraLink\Components\LinkRoute;
+use LaraLink\Facades\LaraLink;
 use LaraLink\LinkBuilder;
 use LaraLink\Links\ItemActionLink;
+use LaraSupport\LaraServiceProvider;
 
-class LaraLinkServiceProvider extends ServiceProvider
+class LaraLinkServiceProvider extends LaraServiceProvider
 {
 
+    /**
+     *
+     */
     public function boot()
     {
-        $configPath = __DIR__ . DIRECTORY_SEPARATOR . '..'. DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR
-            .'config' . DIRECTORY_SEPARATOR . 'lara_link.php';
-        $this->mergeConfigFrom($configPath, 'lara_link');
+        $this->mergeConfig(__DIR__);
     }
 
     /**
@@ -21,46 +25,13 @@ class LaraLinkServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->registerLinkComponents();
-        $this->registerLinks();
-        $this->registerLinkBuilder();
-    }
-
-    /**
-     *
-     */
-    protected function registerLinkComponents()
-    {
-        $this->app->singleton('laralink.components.route', function ($app) {
-            return new LinkRoute();
-        });
-
-    }
-
-    /**
-     *
-     */
-    protected function registerLinks()
-    {
-        $this->app->singleton('laralink.links.item-action', function ($app) {
-            return new ItemActionLink(
-                $app['laralink.components.route']
-            );
-        });
-
-    }
-
-    /**
-     *
-     */
-    protected function registerlinkBuilder()
-    {
-        $this->app->singleton('laralink', function ($app) {
-            return new LinkBuilder(
-                $app['laralink.components.route'],
-                $app['laralink.links.item-action']
-            );
-        });
+        $this->registerProviders(LaraFormServiceProvider::class);
+        $this->registerAlias('LaraLink', LaraLink::class);
+        $this->registerSingletons([
+            'laralink.components.route'=> LinkRoute::class,
+            'laralink.links.item-action' => ItemActionLink::class,
+            'laralink' => LinkBuilder::class
+        ]);
     }
 
     /**

@@ -29,8 +29,18 @@ abstract class Link implements LinkInterface
         $this->route = $linkRoute;
     }
 
+    /**
+     * @param $label
+     * @param $options
+     * @return mixed
+     */
     abstract protected function initialize($label, &$options);
 
+    /**
+     * @param $title
+     * @param $options
+     * @return mixed
+     */
     abstract public function toLink($title, $options);
 
     /**
@@ -57,16 +67,25 @@ abstract class Link implements LinkInterface
          return true;
      }
 
+    /**
+     *
+     */
     protected function getRouteName()
     {
 
     }
 
+    /**
+     *
+     */
     protected function getIcon()
     {
 
     }
 
+    /**
+     *
+     */
     protected function getTitleAttr()
     {
 
