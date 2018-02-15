@@ -57,6 +57,9 @@ class ConfirmationLink extends Link
         if (!isset($submitOptions['class'])) {
             $submitOptions['class'] = '';
         }
+        if (!isset($submitOptions['div'])) {
+            $submitOptions['div'] = false;
+        }
 
         if (!isset($submitOptions['confirm']) || $submitOptions['confirm'] !== false) {
             $submitOptions['class'] .= ' confirmBox';
@@ -70,16 +73,17 @@ class ConfirmationLink extends Link
         if (empty($label)) {
             if (!empty($submitOptions['title'])) {
                 $label = $submitOptions['title'];
+
                 unset($submitOptions['title']);
             } else {
                 $label = false;
             }
         }
 
-        $form = LaraForm::create([], $formOptions);
+        $form = '' . LaraForm::create([], $formOptions);
         $form .= LaraForm::submit($label, $submitOptions);
         $form .= LaraForm::end();
-        return $form;
+        return  $form;
     }
 
     protected function initialize($label, &$options)
