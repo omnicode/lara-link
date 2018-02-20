@@ -28,6 +28,7 @@ class ConfirmationLink extends Link
 
     public function toLink($label, $options)
     {
+
         $formOptions = isset($options['form-options']) ? $options['form-options'] : [];
         $submitOptions = isset($options['submit-options']) ? $options['submit-options'] : [];
 

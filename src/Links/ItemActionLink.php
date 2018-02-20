@@ -96,7 +96,6 @@ class ItemActionLink extends Link
                     $linkOptions['form-options']['data-intro'] = $options['data-intro'];
                 }
 
-
                 // TODO Use ConfirmationLink class
                 $confirmationLink = new ConfirmationLink($this->route);
                 return $confirmationLink->toLink($label, $linkOptions);

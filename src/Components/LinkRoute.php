@@ -208,7 +208,8 @@ class LinkRoute implements ToStringMethodInterface
             }
         }
         $routeEnd = !empty($this->actions[$this->action]['route_end']) ? $this->actions[$this->action]['route_end'] : $this->action;
-        return $tableName . '.' . $routeEnd;
+        $routeStart = !empty($this->data['route_prefix']) ? $this->data['route_prefix'] . '.' : '';
+        return $routeStart . $tableName . '.' . $routeEnd;
     }
 
 

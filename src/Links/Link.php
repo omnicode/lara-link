@@ -1,4 +1,5 @@
 <?php
+
 namespace LaraLink\Links;
 
 use Illuminate\Database\Eloquent\Model;
