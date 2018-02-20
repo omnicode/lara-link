@@ -254,7 +254,6 @@ class LinkRoute implements ToStringMethodInterface
         } else {
             $dataArr = $this->getDefaultReplaceSymbolArr();
         }
-
         return $dataArr;
     }
     /**
@@ -262,7 +261,7 @@ class LinkRoute implements ToStringMethodInterface
      */
     private function getDefaultReplaceSymbolArr($symbol  = true)
     {
-        return $this->generalConf['replace']['symbols'];
+        return !empty($this->generalConf['replace']['symbols-route']) ? $this->generalConf['replace']['symbols-route'] : $this->generalConf['replace']['symbols'];
     }
 
 

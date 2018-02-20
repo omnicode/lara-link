@@ -38,7 +38,6 @@ class DeleteLink extends Link
         if (!isset($options['submit-options']['icon'])) {
             $options['submit-options']['icon'] = 'trash';
         }
-
         $confirmationLink = new ConfirmationLink($this->route);
         return $confirmationLink->toLink($label, $options);
     }
