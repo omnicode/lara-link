@@ -7,8 +7,7 @@ return [
         'icon' => '',
         'replace' => [
             'symbols' => [
-                '_' => '.',
-                '-' => '.'
+                '_' => '-',
             ],
         ],
         'confirmation' => [
