@@ -1,11 +1,9 @@
 <?php
+
 namespace LaraLink\Links;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\Route;
-use LaraLink\Contracts\LinkInterface;
-use LaraLink\Contracts\ToStringMethodInterface;
 
 class ItemActionLink extends Link
 {
@@ -324,5 +322,4 @@ class ItemActionLink extends Link
 
         return __($template, ['action' => $action, 'item' => $itemTableName]);
     }
-
 }

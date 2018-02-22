@@ -1,4 +1,5 @@
 <?php
+
 namespace LaraLink\Links;
 
 use LaraForm\Facades\LaraForm;
@@ -90,6 +91,4 @@ class ConfirmationLink extends Link
     {
 
     }
-
-
 }

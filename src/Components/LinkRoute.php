@@ -1,4 +1,5 @@
 <?php
+
 namespace LaraLink\Components;
 
 use Illuminate\Support\Facades\Config;
@@ -263,6 +264,4 @@ class LinkRoute implements ToStringMethodInterface
     {
         return !empty($this->generalConf['replace']['symbols-route']) ? $this->generalConf['replace']['symbols-route'] : $this->generalConf['replace']['symbols'];
     }
-
-
 }

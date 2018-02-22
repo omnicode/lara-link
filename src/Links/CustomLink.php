@@ -1,8 +1,6 @@
 <?php
-namespace LaraLink\Links;
 
-use Illuminate\Support\Facades\Config;
-use LaraForm\Facades\LaraForm;
+namespace LaraLink\Links;
 
 class CustomLink extends Link
 {
@@ -26,7 +24,11 @@ class CustomLink extends Link
      */
     private $action;
 
-
+    /**
+     * @param $label
+     * @param $options
+     * @return string
+     */
     public function toLink($label, $options)
     {
         $this->processOptions($options);
@@ -108,5 +110,4 @@ class CustomLink extends Link
 
         return trim($optionsStr);
     }
-
 }

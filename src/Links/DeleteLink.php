@@ -1,7 +1,6 @@
 <?php
-namespace LaraLink\Links;
 
-use LaraForm\Facades\LaraForm;
+namespace LaraLink\Links;
 
 class DeleteLink extends Link
 {
@@ -46,6 +45,4 @@ class DeleteLink extends Link
     {
 
     }
-
-
 }

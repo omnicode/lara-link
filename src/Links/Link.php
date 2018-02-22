@@ -2,12 +2,8 @@
 
 namespace LaraLink\Links;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\Route;
 use LaraLink\Components\LinkRoute;
 use LaraLink\Contracts\LinkInterface;
-use LaraLink\Contracts\ToStringMethodInterface;
 
 abstract class Link implements LinkInterface
 {

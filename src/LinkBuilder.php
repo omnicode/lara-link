@@ -1,8 +1,7 @@
 <?php
+
 namespace LaraLink;
 
-use Illuminate\Support\Facades\Config;
-use LaraForm\Facades\LaraForm;
 use LaraLink\Components\LinkRoute;
 use LaraLink\Links\ConfirmationLink;
 use LaraLink\Links\CustomLink;
@@ -109,5 +108,4 @@ class LinkBuilder
         $options['item'] = $item;
         return $this->itemActionLink->toLink($label, $options);
     }
-
 }

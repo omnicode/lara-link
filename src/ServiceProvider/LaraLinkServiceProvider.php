@@ -11,7 +11,6 @@ use LaraSupport\LaraServiceProvider;
 
 class LaraLinkServiceProvider extends LaraServiceProvider
 {
-
     /**
      *
      */

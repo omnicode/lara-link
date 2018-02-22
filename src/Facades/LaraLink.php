@@ -1,4 +1,5 @@
 <?php
+
 namespace LaraLink\Facades;
 
 use Illuminate\Support\Facades\Facade;
