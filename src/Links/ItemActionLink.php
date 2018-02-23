@@ -4,6 +4,7 @@ namespace LaraLink\Links;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Route;
 
 class ItemActionLink extends Link
 {
@@ -35,7 +36,11 @@ class ItemActionLink extends Link
     public function toLink($title, $options)
     {
         $this->initialize($title, $options);
-        $routeName = $this->route->getItemActionRouteName($this->item, $this->action, $options);
+        $routeEnd = last(explode('.', Route::currentRouteName()));
+
+//        $routeName = $this->route->getItemActionRouteName($this->item, $this->action, $options);
+        $routeName = str_replace($routeEnd, $options['action'], Route::currentRouteName());
+
         $linkOptions['route'] = [
             'name' => $routeName,
             'params' => !empty($options['params']) ? $options['params'] : []
@@ -56,7 +61,7 @@ class ItemActionLink extends Link
                 }
             } elseif (!empty($this->actions[$this->action]) && in_array('confirmation', $this->actions[$this->action])
                 || !empty($this->actions[$this->action]['confirmation'])) {
-                    $isConfirmation = true;
+                $isConfirmation = true;
             }
 
             if ($isConfirmation || $this->action == 'destroy') {
