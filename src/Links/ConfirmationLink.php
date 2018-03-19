@@ -81,7 +81,7 @@ class ConfirmationLink extends Link
                 $label = false;
             }
         }
-        $form = '' . LaraForm::create([], $formOptions);
+        $form = '' . LaraForm::create(null, $formOptions);
         $form .= LaraForm::submit($label, $submitOptions);
         $form .= LaraForm::end();
         return  $form;
