@@ -39,7 +39,12 @@ class ItemActionLink extends Link
         $routeEnd = last(explode('.', Route::currentRouteName()));
 
 //        $routeName = $this->route->getItemActionRouteName($this->item, $this->action, $options);
-        $routeName = str_replace($routeEnd, $options['action'], Route::currentRouteName());
+        //$routeName = str_replace($routeEnd, $options['action'], Route::currentRouteName());
+        if (isset($options['route_name'])) {
+            $routeName = str_replace($routeEnd, $options['action'], $options['route_name']);
+        } else {
+            $routeName = str_replace($routeEnd, $options['action'], Route::currentRouteName());
+        }
 
         $linkOptions['route'] = [
             'name' => $routeName,
